@@ -85,193 +85,168 @@
         .footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; }
         .footer a { color: #667eea; text-decoration: none; }
         
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
-        .modal-content { background: white; margin: 2% auto; padding: 0; border-radius: 20px; width: 95%; max-width: 1200px; max-height: 90vh; overflow-y: auto; }
-        .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 10; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
-        .close:hover { background: rgba(0,0,0,0.8); }
-        .modal-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; border-radius: 20px 20px 0 0; text-align: center; }
-        .modal-body { padding: 3rem; }
+        /* MODALS SIMPLIFICADOS */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8); animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            background: white; margin: 5% auto; padding: 0; border-radius: 20px; width: 90%;
+            max-width: 600px; position: relative; animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .close {
+            position: absolute; top: 15px; right: 20px; color: #999; font-size: 30px;
+            font-weight: bold; cursor: pointer; z-index: 10;
+        }
+        .close:hover { color: #333; }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 2rem; border-radius: 20px 20px 0 0; text-align: center;
+        }
+        .modal-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .modal-header p { font-size: 1rem; opacity: 0.9; }
+        
+        .modal-body { padding: 2rem; }
+        .modal-body h3 { color: #2c3e50; margin: 1.5rem 0 1rem 0; font-size: 1.2rem; }
+        .modal-body ul { margin: 1rem 0; padding-left: 1.5rem; }
+        .modal-body li { margin: 0.5rem 0; color: #555; }
+        .modal-body p { color: #666; margin: 1rem 0; line-height: 1.6; }
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .reports-grid, .process-grid, .ideal-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; margin: 2% auto; }
         }
     </style>
 </head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Product Hunt</h1>
-            <p>Servicios profesionales de investigación de mercado que ofrecen insights exhaustivos de productos, análisis competitivo y recomendaciones accionables para decisiones empresariales informadas.</p>
-            <a href="mailto:hola@astranovapartners.com" class="cta-button">📧 Solicitar Demo</a>
-        </div>
-    </section>
-
-    <!-- Ideal Para Section -->
-    <section class="ideal-section">
-        <div class="container">
-            <h2 style="color: white;">¿Para Quién es Ideal Este Servicio?</h2>
-            <div class="ideal-grid">
-                <div class="ideal-card">
-                    <div class="ideal-icon">🏢</div>
-                    <h3>Empresas E-commerce</h3>
-                    <p>Necesitas lanzar nuevos productos y quieres analizar la competencia en Amazon, precios, características y reseñas de usuarios para posicionar tu producto correctamente.</p>
-                </div>
-                <div class="ideal-card">
-                    <div class="ideal-icon">📊</div>
-                    <h3>Equipos de Marketing</h3>
-                    <p>Requieres análisis competitivos detallados para crear estrategias de producto, identificar gaps en el mercado y entender qué valoran los consumidores.</p>
-                </div>
-                <div class="ideal-card">
-                    <div class="ideal-icon">💡</div>
-                    <h3>Startups y Emprendedores</h3>
-                    <p>Estás validando ideas de producto y necesitas datos objetivos sobre el mercado, competidores y oportunidades antes de invertir recursos.</p>
-                </div>
-                <div class="ideal-card">
-                    <div class="ideal-icon">🛒</div>
-                    <h3>Compradores Corporativos</h3>
-                    <p>Necesitas tomar decisiones de compra informadas para tu empresa basadas en análisis objetivos de productos, no solo en marketing.</p>
-                </div>
-                <div class="ideal-card">
-                    <div class="ideal-icon">🎯</div>
-                    <h3>Consultores de Producto</h3>
-                    <p>Ofreces servicios de consultoría y necesitas datos sólidos y análisis profesionales para respaldar tus recomendaciones a clientes.</p>
-                </div>
-                <div class="ideal-card">
-                    <div class="ideal-icon">📈</div>
-                    <h3>Analistas de Mercado</h3>
-                    <p>Trabajas en investigación de mercados y necesitas informes detallados con datos verificables para tus análisis sectoriales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sample Reports Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Ejemplos de Nuestros Análisis</h2>
-            <div class="reports-grid">
-                <div class="report-card">
-                    <div class="report-icon iphone">📱</div>
-                    <h3>iPhone 15 Pro</h3>
-                    <p>Análisis completo del iPhone 15 Pro incluyendo especificaciones técnicas, análisis de mercado y comparativa competitiva</p>
-                    <button onclick="openModal('iphone')" class="report-button">📊 Ver Análisis Completo</button>
-                </div>
-                <div class="report-card">
-                    <div class="report-icon airpods">🎧</div>
-                    <h3>AirPods Pro 2ª Gen</h3>
-                    <p>Análisis comparativo completo de Apple AirPods Pro vs competidores principales en el mercado de audio premium</p>
-                    <button onclick="openModal('airpods')" class="report-button">📊 Ver Análisis Completo</button>
-                </div>
-                <div class="report-card">
-                    <div class="report-icon coffee">☕</div>
-                    <h3>Cafeteras Amazon</h3>
-                    <p>Análisis exhaustivo de cafeteras populares con análisis profundo de 163,316+ reseñas y patrones de uso</p>
-                    <button onclick="openModal('cafeteras')" class="report-button">📊 Ver Análisis Completo</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section">
-        <div class="container">
-            <h2>Nuestro Proceso</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number step-1">1</div>
-                    <h3>Definición de Requisitos</h3>
-                    <p>Identificamos exactamente qué productos analizar, qué información necesitas y qué formato de salida prefieres.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number step-2">2</div>
-                    <h3>Recopilación de Datos</h3>
-                    <p>Utilizamos herramientas de búsqueda y extracción para recopilar información verificable de fuentes confiables en Internet.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number step-3">3</div>
-                    <h3>Organización y Análisis</h3>
-                    <p>Estructuramos los datos en tablas, realizamos comparaciones y generamos visualizaciones según tus necesidades.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number step-4">4</div>
-                    <h3>Entrega de Resultados</h3>
-                    <p>Proporcionamos tablas organizadas, reportes HTML y archivos exportables con toda la información analizada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODALS -->
-    <div id="iphoneModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('iphone')">&times;</span>
-            <div class="modal-header">
-                <h2>📱 Análisis iPhone 15 Pro</h2>
-                <p>Análisis completo de especificaciones y competencia</p>
-            </div>
-            <div class="modal-body">
-                <p>Este es un ejemplo de nuestro análisis detallado de productos tecnológicos premium. Incluye especificaciones técnicas, análisis de mercado, comparativas competitivas y recomendaciones de compra.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="airpodsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('airpods')">&times;</span>
-            <div class="modal-header">
-                <h2>🎧 Análisis AirPods Pro 2ª Gen</h2>
-                <p>Comparativa competitiva completa</p>
-            </div>
-            <div class="modal-body">
-                <p>Este es un ejemplo de nuestro análisis comparativo de productos de audio. Incluye métricas técnicas, pruebas de rendimiento y recomendaciones segmentadas.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="cafeterasModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('cafeteras')">&times;</span>
-            <div class="modal-header">
-                <h2>☕ Análisis Cafeteras Amazon</h2>
-                <p>163,316+ reseñas analizadas • Datos reales de tu tabla</p>
-            </div>
-            <div class="modal-body">
-                <h3>🏆 Productos Analizados</h3>
-                <p><strong>Ninja CE251:</strong> $89.99 (Amazon Choice) - 4.5/5 (25,797 reseñas)</p>
-                <p><strong>BLACK+DECKER CM1160B:</strong> $36.99 (Best Seller) - 4.4/5 (44,786 reseñas)</p>
-                <p><strong>Keurig K-Duo:</strong> $143.99 - 4.4/5 (1,772 reseñas)</p>
-                <p><strong>Hamilton Beach 49980A:</strong> $76.15 - 4.5/5 (51,038 reseñas)</p>
-                <p><strong>Cuisinart DCC-3200P1:</strong> $99.95 (Amazon Choice) - 4.4/5 (40,923 reseñas)</p>
-                <p><em>Este es un ejemplo de nuestro análisis exhaustivo con datos reales de tu tabla.</em></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER CON 2025 -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Product Hunt. Todos los derechos reservados.</p>
-            <p>Contacto: <a href="mailto:hola@astranovapartners.com">hola@astranovapartners.com</a></p>
-        </div>
-    </footer>
-
-    <script>
-        function openModal(type) {
-            document.getElementById(type + 'Modal').style.display = 'block';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Hunt - Análisis de Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
         
-        function closeModal(type) {
-            document.getElementById(type + 'Modal').style.display = 'none';
+        .hero-content { max-width: 800px; padding: 2rem; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px;
+            text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; margin: 1rem;
+            transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1.1rem;
+        }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .section { margin: 4rem 0; background: white; }
+        .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #2c3e50; }
+        
+        .ideal-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 0; color: white; }
+        .ideal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .ideal-card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem;
+            text-align: center; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease;
+        }
+        .ideal-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.15); }
+        .ideal-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .ideal-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: white; }
+        .ideal-card p { color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
+        
+        .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .report-card {
+            background: white; border-radius: 20px; padding: 2rem; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid #f0f0f0;
+        }
+        .report-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        
+        .report-icon {
+            width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;
+        }
+        .report-icon.iphone { background: rgba(0, 123, 255, 0.1); color: #007bff; }
+        .report-icon.airpods { background: rgba(40, 167, 69, 0.1); color: #28a745; }
+        .report-icon.coffee { background: rgba(220, 53, 69, 0.15); color: #dc3545; }
+        
+        .report-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50; }
+        .report-card p { color: #666; margin-bottom: 1.5rem; }
+        
+        .report-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 25px;
+            text-decoration: none; border-radius: 10px; font-weight: 600; display: inline-block;
+            transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
+        }
+        .report-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        .process-section { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 4rem 0; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .process-step { background: white; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        .step-number {
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 700; color: white;
+        }
+        .step-number.step-1 { background: #007bff; }
+        .step-number.step-2 { background: #28a745; }
+        .step-number.step-3 { background: #6f42c1; }
+        .step-number.step-4 { background: #fd7e14; }
+        
+        .process-step h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #2c3e50; }
+        .process-step p { color: #666; }
+        
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; }
+        .footer a { color: #667eea; text-decoration: none; }
+        
+        /* MODALS SIMPLIFICADOS */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8); animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            background: white; margin: 5% auto; padding: 0; border-radius: 20px; width: 90%;
+            max-width: 600px; position: relative; animation: slideIn 0.3s ease;
         }
         
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .close {
+            position: absolute; top: 15px; right: 20px; color: #999; font-size: 30px;
+            font-weight: bold; cursor: pointer; z-index: 10;
         }
-    </script>
-</body>
-</html>
-
+        .close:hover { color: #333; }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 2rem; border-radius: 20px 20px 0 0; text-align: center;
+        }
+        .modal-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .modal-header p { font-size: 1rem; opacity: 0.9; }
+        
+        .modal-body { padding: 2rem; }
+        .modal-body h3 { color: #2c3e50; margin: 1.5rem 0 1rem 0; font-size: 1.2rem; }
+        .modal-body ul { margin: 1rem 0; padding-left: 1.5rem; }
+        .modal-body li { margin: 0.5rem 0; color: #555; }
+        .modal-body p { color: #666; margin: 1rem 0; line-height: 1.6; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .reports-grid, .process-grid, .ideal-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; margin: 2% auto; }
+        }
+    </style>
+</head>
