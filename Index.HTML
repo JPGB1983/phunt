@@ -6,17 +6,8 @@
     <title>Product Hunt - Análisis de Productos</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
         
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
@@ -29,299 +20,178 @@
             color: white;
         }
         
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+        .hero-content { max-width: 800px; padding: 2rem; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
         
         .cta-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
+            color: white; padding: 15px 40px; text-decoration: none;
+            border-radius: 50px; font-weight: 600; display: inline-block;
+            margin: 1rem; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1.1rem;
         }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .section { margin: 4rem 0; background: white; }
+        .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #2c3e50; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .section {
-            margin: 4rem 0;
-            background: white;
-        }
-        
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-        
-        .reports-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
+        .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .report-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
+            background: white; border-radius: 20px; padding: 2rem; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid #f0f0f0;
         }
-        
-        .report-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
+        .report-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
         
         .report-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            width: 80px; height: 80px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; font-size: 2rem;
         }
+        .report-icon.iphone { background: rgba(0, 123, 255, 0.1); color: #007bff; }
+        .report-icon.airpods { background: rgba(40, 167, 69, 0.1); color: #28a745; }
+        .report-icon.coffee { background: rgba(139, 69, 19, 0.2); color: #8B4513; }
         
-        .report-icon.iphone {
-            background: rgba(0, 123, 255, 0.1);
-            color: #007bff;
-        }
+        .report-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50; }
+        .report-card p { color: #666; margin-bottom: 1.5rem; }
         
-        .report-icon.airpods {
-            background: rgba(40, 167, 69, 0.1);
-            color: #28a745;
-        }
-        
-        .report-icon.coffee {
-            background: rgba(139, 69, 19, 0.2);
-            color: #8B4513;
-        }
-        
-        .report-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        .report-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .process-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 4rem 0;
-        }
-        
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .process-step {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+        .process-section { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 4rem 0; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .process-step { background: white; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         
         .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 700; color: white;
         }
-        
         .step-number.step-1 { background: #007bff; }
         .step-number.step-2 { background: #28a745; }
         .step-number.step-3 { background: #6f42c1; }
         .step-number.step-4 { background: #fd7e14; }
         
-        .process-step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
+        .process-step h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #2c3e50; }
+        .process-step p { color: #666; }
         
-        .process-step p {
-            color: #666;
-        }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; }
+        .footer a { color: #667eea; text-decoration: none; }
         
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
+        /* MODALS MEJORADOS */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
         }
         
         .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 1000px;
-            max-height: 80vh;
-            overflow-y: auto;
+            background-color: white; margin: 2% auto; padding: 0;
+            border-radius: 20px; width: 95%; max-width: 1200px;
+            max-height: 90vh; overflow-y: auto; position: relative;
+            animation: slideIn 0.3s ease;
         }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
         .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            padding: 20px;
-            cursor: pointer;
+            position: absolute; top: 20px; right: 30px; color: white;
+            font-size: 35px; font-weight: bold; cursor: pointer; z-index: 10;
+            background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
         }
-        
-        .close:hover {
-            color: black;
-        }
+        .close:hover { background: rgba(0,0,0,0.8); }
         
         .modal-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px 15px 0 0;
-            text-align: center;
+            color: white; padding: 3rem 2rem; border-radius: 20px 20px 0 0;
+            text-align: center; position: relative; overflow: hidden;
         }
         
-        .modal-body {
-            padding: 2rem;
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3') center/cover;
+            opacity: 0.2;
         }
+        
+        .modal-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; position: relative; z-index: 2; }
+        .modal-header p { font-size: 1.2rem; opacity: 0.9; position: relative; z-index: 2; }
+        
+        .modal-body { padding: 3rem; }
+        
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem; border-radius: 15px; text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        
+        .stat-number { font-size: 2rem; font-weight: 700; color: #2c3e50; margin-bottom: 0.5rem; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+        
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem; margin: 2rem 0;
+        }
+        
+        .feature-item {
+            background: #f8f9fa; padding: 1.5rem; border-radius: 12px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .feature-item h4 { color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .feature-item p { color: #666; font-size: 0.9rem; }
         
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem; margin: 2rem 0;
         }
         
         .product-item {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5rem;
-            background: #f9f9f9;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border: 1px solid #e9ecef; border-radius: 15px; padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;
         }
         
-        .product-item h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
+        .product-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        
+        .product-header {
+            display: flex; justify-content: space-between; align-items: start;
+            margin-bottom: 1rem; border-bottom: 2px solid #f8f9fa; padding-bottom: 1rem;
         }
         
-        .price {
-            font-size: 1.3rem;
-            color: #28a745;
-            font-weight: bold;
-            margin: 0.5rem 0;
+        .product-item h4 { color: #2c3e50; font-size: 1.3rem; }
+        .product-badge {
+            background: #28a745; color: white; padding: 0.3rem 0.8rem;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
         }
+        .product-badge.best-seller { background: #ff6b35; }
         
-        .rating {
-            color: #ffc107;
-            margin: 0.5rem 0;
-        }
+        .price { font-size: 1.8rem; color: #28a745; font-weight: 700; margin: 0.5rem 0; }
+        .rating { color: #ffc107; margin: 0.5rem 0; font-size: 1.1rem; }
+        .pros { color: #28a745; font-size: 0.95rem; margin: 0.8rem 0; padding: 0.5rem; background: rgba(40, 167, 69, 0.1); border-radius: 8px; }
+        .cons { color: #dc3545; font-size: 0.95rem; margin: 0.8rem 0; padding: 0.5rem; background: rgba(220, 53, 69, 0.1); border-radius: 8px; }
         
-        .pros {
-            color: #28a745;
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
+        .amazon-link {
+            display: inline-block; background: #FF9500; color: white;
+            padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 10px;
+            font-weight: 600; transition: all 0.3s ease; margin-top: 1rem;
         }
-        
-        .cons {
-            color: #dc3545;
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
+        .amazon-link:hover { background: #e68500; transform: translateY(-2px); }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
-            
-            .reports-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin: 2% auto;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .modal-content { width: 98%; margin: 1% auto; }
+            .product-grid { grid-template-columns: 1fr; }
+            .modal-body { padding: 1.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -396,7 +266,7 @@
         </div>
     </section>
 
-    <!-- Modals -->
+    <!-- MODALS MEJORADOS -->
     <div id="iphoneModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('iphone')">&times;</span>
@@ -405,28 +275,71 @@
                 <p>Análisis completo de especificaciones y competencia</p>
             </div>
             <div class="modal-body">
-                <h3>📊 Resumen Ejecutivo</h3>
-                <p><strong>Precio:</strong> $999 - $1,599</p>
-                <p><strong>Lanzamiento:</strong> Septiembre 2023</p>
-                <p><strong>Posición:</strong> Smartphone premium flagship</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">$999-$1,599</div>
+                        <div class="stat-label">Rango de Precios</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Septiembre 2023</div>
+                        <div class="stat-label">Lanzamiento</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">A17 Pro</div>
+                        <div class="stat-label">Chip (3nm)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Titanio</div>
+                        <div class="stat-label">Material Premium</div>
+                    </div>
+                </div>
                 
-                <h4>🏆 Características Principales:</h4>
-                <ul>
-                    <li>Chip A17 Pro (3nm)</li>
-                    <li>Cámara principal 48MP con teleobjetivo</li>
-                    <li>Puerto USB-C</li>
-                    <li>Titanio Grade 5</li>
-                    <li>Action Button personalizable</li>
-                </ul>
+                <h3>🏆 Características Principales</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>🔥 Chip A17 Pro (3nm)</h4>
+                        <p>El procesador más avanzado en smartphones, con rendimiento superior y eficiencia energética mejorada</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📸 Cámara 48MP</h4>
+                        <p>Sistema de cámara principal con teleobjetivo y capacidades profesionales de fotografía</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔌 Puerto USB-C</h4>
+                        <p>Primera generación de iPhone con USB-C, compatible con estándar universal</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>💪 Titanio Grade 5</h4>
+                        <p>Material premium que ofrece durabilidad superior y peso reducido</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🎯 Action Button</h4>
+                        <p>Botón personalizable que reemplaza al switch de silencio tradicional</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🎮 Gaming Avanzado</h4>
+                        <p>Capacidades de gaming mejoradas con ray tracing y gráficos de consola</p>
+                    </div>
+                </div>
                 
-                <h4>🔥 Competidores Principales:</h4>
-                <ul>
-                    <li>Samsung Galaxy S24 Ultra</li>
-                    <li>Google Pixel 8 Pro</li>
-                    <li>OnePlus 12</li>
-                </ul>
+                <h3>🔥 Análisis Competitivo</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <h4>vs. Samsung Galaxy S24 Ultra</h4>
+                        <p><strong>Ventajas iPhone:</strong> Ecosistema iOS, calidad build premium, optimización software</p>
+                        <p><strong>Ventajas Samsung:</strong> S Pen, zoom óptico superior, Android personalizable</p>
+                    </div>
+                    <div class="product-item">
+                        <h4>vs. Google Pixel 8 Pro</h4>
+                        <p><strong>Ventajas iPhone:</strong> Rendimiento superior, build quality, longevidad software</p>
+                        <p><strong>Ventajas Pixel:</strong> Fotografía computacional, Android puro, precio menor</p>
+                    </div>
+                </div>
                 
-                <p><em>Este es un ejemplo de nuestro análisis detallado de productos tecnológicos.</em></p>
+                <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
+                    <strong>Este es un ejemplo de nuestro análisis detallado de productos tecnológicos premium.</strong><br>
+                    Incluye especificaciones técnicas, análisis de mercado, comparativas competitivas y recomendaciones de compra.
+                </p>
             </div>
         </div>
     </div>
@@ -436,30 +349,93 @@
             <span class="close" onclick="closeModal('airpods')">&times;</span>
             <div class="modal-header">
                 <h2>🎧 Análisis AirPods Pro 2ª Gen</h2>
-                <p>Comparativa competitiva completa</p>
+                <p>Comparativa competitiva completa en el mercado de audio premium</p>
             </div>
             <div class="modal-body">
-                <h3>📊 Resumen Ejecutivo</h3>
-                <p><strong>Precio:</strong> $249</p>
-                <p><strong>Lanzamiento:</strong> Septiembre 2022</p>
-                <p><strong>Posición:</strong> Auriculares premium con ANC</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">$249</div>
+                        <div class="stat-label">Precio de Lanzamiento</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6h + 30h</div>
+                        <div class="stat-label">Batería Total</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Chip H2</div>
+                        <div class="stat-label">Procesador Audio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2x Mejor</div>
+                        <div class="stat-label">ANC vs Gen 1</div>
+                    </div>
+                </div>
                 
-                <h4>🏆 Características Principales:</h4>
-                <ul>
-                    <li>Chip H2 para mejor ANC</li>
-                    <li>Cancelación de ruido adaptativa</li>
-                    <li>Audio espacial personalizado</li>
-                    <li>Hasta 6h batería (30h con estuche)</li>
-                </ul>
+                <h3>🎵 Características de Audio</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>🔇 ANC Adaptativa</h4>
+                        <p>Cancelación de ruido que se ajusta automáticamente al ambiente circundante</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🎭 Audio Espacial</h4>
+                        <p>Experiencia inmersiva personalizada con seguimiento dinámico de la cabeza</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔄 Modo Transparencia</h4>
+                        <p>Permite escuchar el entorno mientras usas los auriculares</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚡ Carga Rápida</h4>
+                        <p>5 minutos de carga ofrecen 1 hora de reproducción</p>
+                    </div>
+                </div>
                 
-                <h4>🔥 Competidores Principales:</h4>
-                <ul>
-                    <li>Sony WF-1000XM4</li>
-                    <li>Bose QuietComfort Earbuds</li>
-                    <li>Samsung Galaxy Buds2 Pro</li>
-                </ul>
+                <h3>🏆 Comparativa Competitiva</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>Sony WF-1000XM4</h4>
+                            <span class="product-badge">Competidor</span>
+                        </div>
+                        <div class="price">$279</div>
+                        <div class="pros">✅ Mejor ANC del mercado, batería superior, LDAC</div>
+                        <div class="cons">❌ Tamaño más grande, sin integración iOS</div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>Bose QuietComfort Earbuds</h4>
+                            <span class="product-badge">Competidor</span>
+                        </div>
+                        <div class="price">$299</div>
+                        <div class="pros">✅ ANC excelente, comodidad superior, controles táctiles</div>
+                        <div class="cons">❌ Precio alto, estuche grande, sin audio espacial</div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>Samsung Galaxy Buds2 Pro</h4>
+                            <span class="product-badge">Competidor</span>
+                        </div>
+                        <div class="price">$229</div>
+                        <div class="pros">✅ Precio competitivo, integración Samsung, diseño compacto</div>
+                        <div class="cons">❌ ANC inferior, menos funciones premium</div>
+                    </div>
+                </div>
                 
-                <p><em>Este es un ejemplo de nuestro análisis comparativo de productos de audio.</em></p>
+                <h3>📊 Conclusión del Análisis</h3>
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                    <p><strong>🏆 Mejor para ecosistema Apple:</strong> Integración perfecta con iPhone, iPad y Mac</p>
+                    <p><strong>🎵 Calidad de audio:</strong> Excelente pero no la mejor del mercado</p>
+                    <p><strong>💰 Relación precio-calidad:</strong> Justificada por la integración y facilidad de uso</p>
+                    <p><strong>🎯 Recomendación:</strong> Ideal para usuarios de Apple, considerar alternativas para Android</p>
+                </div>
+                
+                <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #666;">
+                    <strong>Este es un ejemplo de nuestro análisis comparativo de productos de audio.</strong><br>
+                    Incluye métricas técnicas, pruebas de rendimiento, análisis de mercado y recomendaciones segmentadas.
+                </p>
             </div>
         </div>
     </div>
@@ -469,84 +445,58 @@
             <span class="close" onclick="closeModal('cafeteras')">&times;</span>
             <div class="modal-header">
                 <h2>☕ Análisis Cafeteras Amazon</h2>
-                <p>163,316+ reseñas analizadas</p>
+                <p>163,316+ reseñas analizadas • Datos reales de tu tabla</p>
             </div>
             <div class="modal-body">
-                <h3>📊 Resumen Ejecutivo</h3>
-                <p><strong>Productos analizados:</strong> 5 cafeteras</p>
-                <p><strong>Rango de precios:</strong> $36.99 - $143.99</p>
-                <p><strong>Rating promedio:</strong> 4.4/5</p>
-                
-                <div class="product-grid">
-                    <div class="product-item">
-                        <h4>Ninja CE251 12-Cup</h4>
-                        <div class="price">$89.99 (Amazon Choice)</div>
-                        <div class="rating">⭐⭐⭐⭐⭐ 4.5/5 (25,797 reseñas)</div>
-                        <div class="pros">✅ Fácil de usar, café caliente, buen precio</div>
-                        <div class="cons">❌ Limpieza frecuente, goteo ocasional</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Cafeteras Analizadas</div>
                     </div>
-                    
-                    <div class="product-item">
-                        <h4>BLACK+DECKER CM1160B</h4>
-                        <div class="price">$36.99 (Best Seller)</div>
-                        <div class="rating">⭐⭐⭐⭐☆ 4.4/5 (44,786 reseñas)</div>
-                        <div class="pros">✅ Precio excelente, fácil uso</div>
-                        <div class="cons">❌ Construcción frágil, café tibio</div>
+                    <div class="stat-card">
+                        <div class="stat-number">163,316+</div>
+                        <div class="stat-label">Reseñas Totales</div>
                     </div>
-                    
-                    <div class="product-item">
-                        <h4>Keurig K-Duo Hot & Iced</h4>
-                        <div class="price">$143.99</div>
-                        <div class="rating">⭐⭐⭐⭐☆ 4.4/5 (1,772 reseñas)</div>
-                        <div class="pros">✅ Conveniencia, tecnología moderna</div>
-                        <div class="cons">❌ Precio alto, K-Cups costosos</div>
+                    <div class="stat-card">
+                        <div class="stat-number">$36.99-$143.99</div>
+                        <div class="stat-label">Rango de Precios</div>
                     </div>
-                    
-                    <div class="product-item">
-                        <h4>Hamilton Beach 49980A</h4>
-                        <div class="price">$76.15</div>
-                        <div class="rating">⭐⭐⭐⭐⭐ 4.5/5 (51,038 reseñas)</div>
-                        <div class="pros">✅ Versatilidad 2-en-1, buen precio</div>
-                        <div class="cons">❌ Lado individual débil, limpieza complicada</div>
-                    </div>
-                    
-                    <div class="product-item">
-                        <h4>Cuisinart DCC-3200P1</h4>
-                        <div class="price">$99.95 (Amazon Choice)</div>
-                        <div class="rating">⭐⭐⭐⭐☆ 4.4/5 (40,923 reseñas)</div>
-                        <div class="pros">✅ Café confiable, fácil programación</div>
-                        <div class="cons">❌ Interfaz complicada, apertura pequeña</div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.4/5</div>
+                        <div class="stat-label">Rating Promedio</div>
                     </div>
                 </div>
                 
-                <p><em>Este es un ejemplo de nuestro análisis exhaustivo con datos reales de tu tabla.</em></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Product Hunt. Todos los derechos reservados.</p>
-            <p>Contacto: <a href="mailto:hola@astranovapartners.com">hola@astranovapartners.com</a></p>
-        </div>
-    </footer>
-
-    <script>
-        function openModal(type) {
-            document.getElementById(type + 'Modal').style.display = 'block';
-        }
-        
-        function closeModal(type) {
-            document.getElementById(type + 'Modal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-    </script>
-</body>
-</html>
-
+                <h3>🏆 Análisis Detallado por Producto</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>Ninja CE251 12-Cup</h4>
+                            <span class="product-badge">Amazon Choice</span>
+                        </div>
+                        <div class="price">$89.99</div>
+                        <div class="rating">⭐⭐⭐⭐⭐ 4.5/5 (25,797 reseñas)</div>
+                        <div class="pros">✅ <strong>Ventajas:</strong> Fácil de usar, café caliente, buen precio, diseño atractivo</div>
+                        <div class="cons">❌ <strong>Problemas:</strong> Limpieza frecuente requerida, goteo ocasional, botones confusos</div>
+                        <a href="https://www.amazon.com/Ninja-12-Cup-Programmable-CE251-Stainless/dp/B07S98411N" target="_blank" class="amazon-link">🛒 Ver en Amazon</a>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>BLACK+DECKER CM1160B</h4>
+                            <span class="product-badge best-seller">Best Seller</span>
+                        </div>
+                        <div class="price">$36.99</div>
+                        <div class="rating">⭐⭐⭐⭐☆ 4.4/5 (44,786 reseñas)</div>
+                        <div class="pros">✅ <strong>Ventajas:</strong> Precio excelente, fácil uso, buen valor por dinero</div>
+                        <div class="cons">❌ <strong>Problemas:</strong> Construcción frágil, vida útil corta, café tibio</div>
+                        <a href="https://www.amazon.com/BLACK-DECKER-Programmable-Coffeemaker-CM1160B/dp/B01GJOMWVA" target="_blank" class="amazon-link">🛒 Ver en Amazon</a>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-header">
+                            <h4>Keurig K-Duo Hot & Iced</h4>
+                            <span class="product-badge">Premium</span>
+                        </div>
+                        <div class="price">$143.99</div>
+                        <div
