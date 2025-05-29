@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Hunt - Servicios de Análisis de Productos</title>
+    <title>Product Hunt - Análisis de Productos</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
         
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3') center/cover;
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -20,8 +29,24 @@
             color: white;
         }
         
-        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; font-weight: 300; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
         
         .cta-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -32,10 +57,10 @@
             font-weight: 600;
             display: inline-block;
             margin: 1rem;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
         }
         
         .cta-button:hover {
@@ -43,11 +68,30 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .section { margin: 4rem 0; }
-        .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #2c3e50; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
         
-        .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .section {
+            margin: 4rem 0;
+            background: white;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
         .report-card {
             background: white;
             border-radius: 20px;
@@ -55,71 +99,236 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
-        .report-card:hover { transform: translateY(-10px); }
+        
+        .report-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
         
         .report-icon {
-            width: 80px; height: 80px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 1.5rem; font-size: 2rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
         }
-        .report-icon.iphone { background: rgba(0, 123, 255, 0.1); color: #007bff; }
-        .report-icon.airpods { background: rgba(40, 167, 69, 0.1); color: #28a745; }
-        .report-icon.coffee { background: rgba(139, 69, 19, 0.2); color: #8B4513; }
         
-        .report-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50; }
-        .report-card p { color: #666; margin-bottom: 1.5rem; }
+        .report-icon.iphone {
+            background: rgba(0, 123, 255, 0.1);
+            color: #007bff;
+        }
         
-        /* Modal styles */
+        .report-icon.airpods {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .report-icon.coffee {
+            background: rgba(139, 69, 19, 0.2);
+            color: #8B4513;
+        }
+        
+        .report-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .report-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .process-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 4rem 0;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .process-step {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .step-number.step-1 { background: #007bff; }
+        .step-number.step-2 { background: #28a745; }
+        .step-number.step-3 { background: #6f42c1; }
+        .step-number.step-4 { background: #fd7e14; }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .process-step p {
+            color: #666;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
         .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
         }
+        
         .modal-content {
-            background-color: #fefefe; margin: 5% auto; padding: 0;
-            border-radius: 15px; width: 90%; max-width: 1000px;
-            max-height: 80vh; overflow-y: auto;
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 80vh;
+            overflow-y: auto;
         }
+        
         .close {
-            color: #aaa; float: right; font-size: 28px; font-weight: bold;
-            padding: 20px; cursor: pointer;
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            cursor: pointer;
         }
-        .close:hover { color: black; }
+        
+        .close:hover {
+            color: black;
+        }
         
         .modal-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 2rem; border-radius: 15px 15px 0 0; text-align: center;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
         }
         
-        .modal-body { padding: 2rem; }
+        .modal-body {
+            padding: 2rem;
+        }
         
         .product-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
         .product-item {
-            border: 1px solid #ddd; border-radius: 10px;
-            padding: 1.5rem; background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            background: #f9f9f9;
         }
         
-        .product-item h4 { color: #2c3e50; margin-bottom: 0.5rem; }
-        .price { font-size: 1.3rem; color: #28a745; font-weight: bold; margin: 0.5rem 0; }
-        .rating { color: #ffc107; margin: 0.5rem 0; }
-        .pros { color: #28a745; font-size: 0.9rem; margin: 0.5rem 0; }
-        .cons { color: #dc3545; font-size: 0.9rem; margin: 0.5rem 0; }
+        .product-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            color: #28a745;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin: 0.5rem 0;
+        }
+        
+        .pros {
+            color: #28a745;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        
+        .cons {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .modal-content { width: 95%; margin: 2% auto; }
-            .product-grid { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div>
+        <div class="hero-content">
             <h1>Product Hunt</h1>
             <p>Servicios profesionales de investigación de mercado que ofrecen insights exhaustivos de productos, análisis competitivo y recomendaciones accionables para decisiones empresariales informadas.</p>
             <a href="mailto:hola@astranovapartners.com" class="cta-button">📧 Solicitar Demo</a>
@@ -150,6 +359,38 @@
                     <h3>Cafeteras Amazon</h3>
                     <p>Análisis completo de cafeteras populares con análisis profundo de reseñas</p>
                     <button onclick="openModal('cafeteras')" class="cta-button">🔗 Ver Análisis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2>Nuestro Proceso</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number step-1">1</div>
+                    <h3>Definición de Requisitos</h3>
+                    <p>Identificamos exactamente qué productos analizar, qué información necesitas y qué formato de salida prefieres.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number step-2">2</div>
+                    <h3>Recopilación de Datos</h3>
+                    <p>Utilizamos herramientas de búsqueda y extracción para recopilar información verificable de fuentes confiables en Internet.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number step-3">3</div>
+                    <h3>Organización y Análisis</h3>
+                    <p>Estructuramos los datos en tablas, realizamos comparaciones y generamos visualizaciones según tus necesidades.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number step-4">4</div>
+                    <h3>Entrega de Resultados</h3>
+                    <p>Proporcionamos tablas organizadas, reportes HTML y archivos exportables con toda la información analizada.</p>
                 </div>
             </div>
         </div>
@@ -283,6 +524,14 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Product Hunt. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:hola@astranovapartners.com">hola@astranovapartners.com</a></p>
+        </div>
+    </footer>
+
     <script>
         function openModal(type) {
             document.getElementById(type + 'Modal').style.display = 'block';
@@ -300,3 +549,4 @@
     </script>
 </body>
 </html>
+
